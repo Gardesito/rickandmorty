@@ -28,12 +28,13 @@ const printData = arr => {
     /*  console.log(arr[i].name) */
      let card = document.createElement("div")
      card.classList.add("card")
+     let img = document.createElement("img")
+         img.src=arr[i].image
+         card.appendChild(img)
      let nombre = document.createElement("p")
          nombre.innerText= "Nombre : " + arr[i].name
          card.appendChild(nombre)
-         let img = document.createElement("img")
-         img.src=arr[i].image
-         card.appendChild(img)
+         
          let status = document.createElement("p")
          status.innerText="Status : " +  arr[i].status
          card.appendChild(status)
@@ -54,14 +55,30 @@ const printData = arr => {
 } 
 
  async function getPersonajes() {
-    let response = await fetch("https://rickandmortyapi.com/api/character"
+    let response = await fetch("https://rickandmortyapi.com/api/character?page=" + pagina
     )
     let data = await response.json();
 rickAndMortyPersonajes=data.results;
+
+
+   let totalPersonajes = data.info.count;
+total = data.info.pages;
+muestraTotalDePaginas.innerText=total;
+
+personajes.innerText="Total Personajes : " + totalPersonajes;
+
+contadorDePaginaActual.innerText=pagina;
+
 datapersonajes=data.results
    printData(datapersonajes)
 }
 getPersonajes()
+
+
+
+
+
+
 
 mujer.addEventListener("click", () => {
   const arr = datapersonajes;
@@ -79,3 +96,40 @@ hombre.addEventListener("click", () =>{
   let hombres = arr.filter(personaje => personaje.gender === "Male")
   printData(hombres)
 })
+
+todos.addEventListener("click", () => {
+  printData(datapersonajes);
+});
+
+function nextPage() {
+  pagina++;
+  contadorDePaginaActual.innerText = pagina;
+  getPersonajes();
+}
+
+function prevPage() {
+  if(pagina==1){
+    pagina=1
+  }else{
+    pagina--;
+  }
+  contadorDePaginaActual.innerText = pagina;
+  getPersonajes();
+}
+
+function firstPage() {
+  pagina = 1;
+  contadorDePaginaActual.innerText = pagina;
+  getPersonajes();
+}
+
+function lastPage() {
+  pagina = total;
+  contadorDePaginaActual.innerText = pagina;
+  getPersonajes();
+}
+
+adelante.addEventListener("click", nextPage);
+atras.addEventListener("click", prevPage);
+inicio.addEventListener("click", firstPage);
+final.addEventListener("click", lastPage);

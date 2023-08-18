@@ -43,6 +43,7 @@ gap: 10px; ;
   list-style: none;
 }
 .botongeneros{
+  cursor: pointer;
   border: none;
   background-color: black;
   color: aliceblue;
@@ -52,4 +53,27 @@ gap: 10px; ;
   text-decoration: none;
   color: white;
   font-size: 30px;
+}
+.direccionmedio{
+  display: flex ;
+  justify-content: center;
+  margin: 0 auto;
+}
+.paginas{
+  display: flex ;
+  justify-content: center;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items:center ;
+}
+footer{
+  margin-top: 10px;
+  background-color: black;
+  font-size: 30px;
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+#personajes{
+  margin-left: 10px;
 }
