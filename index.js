@@ -1,27 +1,3 @@
-/* 
-  
-  let rickyAndMortyPersonajes = [];
-
-async function getPersonajes() {
-  let response = await fetch(
-    "https://rickandmortyapi.com/api/character"
-  );
-  let data = await response.json();
-rickyAndMortyPersonajes=data.results
-mostrarPersonajes(rickyAndMortyPersonajes)
-}
-function mostrarPersonajes(personajes){
-    let caja = document.getElementById("caja")
-    for ( let i = 0; i<personajes.length; i++){
-console.log(personajes[i].name)
-        let h2 = document.createElement("h2")
-        h2.innerText=personajes[i].name
-        caja.appendChild(h2)
-    }
-}
-
-getPersonajes(); */
- 
 let pagina = 1
 let total = 0 
 let contadorDePaginaActual = document.getElementById ("pagina-actual")
@@ -40,9 +16,14 @@ const todos = document.getElementById("Todos")
 const mujer = document.getElementById("Mujeres")
 const hombre = document.getElementById("Hombres")
 
+/* let grid =document.createElement("div");
+grid.classList.add("grid") */
+
 let datapersonajes = {};
 
 const printData = arr => {
+  //se vacia y lo rellena con los datos del for 
+  container.innerHTML="";
   for (let i = 0; i<arr.length; i++){
     /*  console.log(arr[i].name) */
      let card = document.createElement("div")

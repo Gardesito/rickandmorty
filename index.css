@@ -1,3 +1,6 @@
+body{
+  margin: 0;
+}
 #container {
     max-width: 1200px;
   margin: 0 auto;
@@ -25,3 +28,28 @@
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.33); 
  }
  
+ #header{
+background-color: black;
+display: flex;
+justify-content: space-between;
+
+ }
+ 
+ #generos{
+  display: flex;
+gap: 10px; ;
+ }
+ ul {
+  list-style: none;
+}
+.botongeneros{
+  border: none;
+  background-color: black;
+  color: aliceblue;
+}
+
+#titulo{
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
